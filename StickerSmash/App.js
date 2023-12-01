@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
 
-import ImageViewer from './components/ImageViewer';
+import ImageViewer from './components/imageViewer';
 
 const PlaceholderImage = require('./assets/images/background-image.png');
 
@@ -21,9 +21,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#25292e',
     alignItems: 'center',
+    justifyContent: 'center',
   },
   imageContainer: {
     flex: 1,
     paddingTop: 58,
   },
 });
+
+
+
