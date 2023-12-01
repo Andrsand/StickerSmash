@@ -12,6 +12,10 @@ export default function App() {
       <View style={styles.imageContainer}>
         <ImageViewer placeholderImageSource={PlaceholderImage} />
       </View>
+      <View style={styles.footerContainer}>
+        <Button theme="primary" label="Choose a photo" /> {/* Использование компонента Button */}
+        <Button label="Use this photo" />
+      </View>
       <StatusBar style="auto" />
     </View>
   );
@@ -28,6 +32,11 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 58,
   },
+  footerContainer: {
+    flex: 1 / 3,
+    alignItems: 'center',
+  },
+
 });
 
 
