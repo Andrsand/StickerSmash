@@ -13,22 +13,22 @@ import EmojiList from './components/EmojiList';
 import EmojiSticker from './components/EmojiSticker.js';
 
 
-const PlaceholderImage = require('./assets/images/background-image.png');
+const PlaceholderImage = require('./assets/images/background-image.png'); // - путь к изображению по умолчанию
 
 export default function App() {
   const [pickedEmoji, setPickedEmoji] = useState(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [showAppOptions, setShowAppOptions] = useState(false);
+  const [showAppOptions, setShowAppOptions] = useState(false); // стейт - показывать или нет модальное окно
   const [selectedImage, setSelectedImage] = useState(null);
 
   const pickImageAsync = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({ // Использование launchImageLibraryAsync() - метода, который отображает системный пользовательский интерфейс для выбора изображения
-      allowsEditing: true,
-      quality: 1,
+      allowsEditing: true,                                // если true, то пользователь может редактировать изображ
+      quality: 1,                                        // минимальное качество изображений
     });
 
-    if (!result.canceled) {
-      setSelectedImage(result.assets[0].uri);
+    if (!result.canceled) { // canceled - флаг который устанавливается в true если пользователь отменил выбор изображения
+      setSelectedImage(result.assets[0].uri); // сохраняем изображение в state по определенному пути
       setShowAppOptions(true);
     } else {
       alert('You did not select any image.');
@@ -36,7 +36,7 @@ export default function App() {
   };
 
   const onReset = () => {
-    setShowAppOptions(false);
+    setShowAppOptions(false); // reset - возврат стейту значения false
   };
 
   const onAddSticker = () => {
