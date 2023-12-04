@@ -54,10 +54,11 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
-        <ImageViewer placeholderImageSource={PlaceholderImage} selectedImage={selectedImage} />
-        {pickedEmoji !== null ? <EmojiSticker imageSize={40} stickerSource={pickedEmoji} /> : null}
+        <ImageViewer placeholderImageSource={PlaceholderImage} selectedImage={selectedImage} /> {/* ImageViewer - кастомный компонент. placeholderImageSource - путь к изображению по умолчанию. selectedImage - путь выбранного изображения */}
+        {pickedEmoji !== null ? <EmojiSticker imageSize={40} stickerSource={pickedEmoji} /> : null} {/* EmojiSticker - кастомный компонент показывающий стикер из стейта pickedEmoji*/}
       </View>
-      {showAppOptions ? (
+
+      {showAppOptions ? ( // если стейт showAppOptions - со значением true - показывать кнопки модального окна
         <View style={styles.optionsContainer}>
           <View style={styles.optionsRow}>
             <IconButton icon="refresh" label="Reset" onPress={onReset} />
@@ -69,9 +70,10 @@ export default function App() {
       ) : (
         <View style={styles.footerContainer}>
           <Button theme="primary" label="Choose a photo" onPress={pickImageAsync} />
-          <Button label="Use this photo" onPress={() => setShowAppOptions(true)} />
+          <Button label="Use this photo" onPress={() => setShowAppOptions(true)} /> {/* setShowAppOptions(true) - показывает модальное окно*/}
         </View>
       )}
+
       <EmojiPicker isVisible={isModalVisible} onClose={onModalClose}>
         <EmojiList onSelect={setPickedEmoji} onCloseModal={onModalClose} />
       </EmojiPicker>
