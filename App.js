@@ -1,13 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, Image } from 'react-native';
 
-const PlaceholderImage = require('./assets/images/background-image.png');
+import ImageViewer from './components/ImageViewer';
+
+const PlaceholderImage = require('./assets/images/background-image.png'); // переменная с путем к изображению
 
 export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
-        <Image source={PlaceholderImage} style={styles.image} />
+        <ImageViewer placeholderImageSource={PlaceholderImage} /> {/** свойство ссылающееся на переменную с путем изображеня */}
       </View>
       <StatusBar style="auto" />
     </View>
