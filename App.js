@@ -7,10 +7,12 @@ import Button from './components/Button';
 import ImageViewer from './components/ImageViewer';
 import CircleButton from './components/CircleButton';
 import IconButton from './components/IconButton';
+import EmojiPicker from "./components/EmojiPicker";
 
 const PlaceholderImage = require('./assets/images/background-image.png'); // переменная с путем к изображению
 
 export default function App() {
+  const [isModalVisible, setIsModalVisible] = useState(false); // значение по умолчанию falseчтобы модальное окно было скрыто до тех пор, пока пользователь не нажмет кнопку, чтобы открыть его. 
   const [showAppOptions, setShowAppOptions] = useState(false); // Значение этой переменной будет установлено равным true когда пользователь выбирает изображение из медиа-библиотеки или решает использовать изображение-заполнитель. 
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -19,7 +21,11 @@ export default function App() {
   };
 
   const onAddSticker = () => {
-    // we will implement this later
+    setIsModalVisible(true);   // когда пользователь нажимает кнопку. Откроется окно выбора смайлов. 
+  };
+
+  const onModalClose = () => {
+    setIsModalVisible(false);
   };
 
   const onSaveImageAsync = async () => {
@@ -63,6 +69,9 @@ export default function App() {
           <Button label="Use this photo" onPress={() => setShowAppOptions(true)} />
         </View>
       )}
+      <EmojiPicker isVisible={isModalVisible} onClose={onModalClose}>
+        {/* A list of emoji component will go here */}
+      </EmojiPicker>
       <StatusBar style="auto" />
     </View>
   );
