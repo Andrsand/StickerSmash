@@ -1,9 +1,9 @@
 import { Modal, View, Text, Pressable, StyleSheet } from 'react-native';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
-export default function EmojiPicker({ isVisible, children, onClose }) { // <EmojiPicker> onCloseprop вызывается, когда пользователь нажимает кнопку закрытия <Pressable>
+export default function EmojiPicker({ isVisible, children, onClose }) {
     return (
-        <Modal animationType="slide" transparent={true} visible={isVisible}> {/* animationTypeprop определяет, как он входит и покидает экран. В данном случае он скользит снизу экрана. transparentprop — это логическое значение, которое определяет, заполняет ли модальное окно все представление. visibleprop принимает значение isVisibleи контролирует, открыто или закрыто модальное окно. */}
+        <Modal animationType="slide" transparent={true} visible={isVisible}>
             <View style={styles.modalContent}>
                 <View style={styles.titleContainer}>
                     <Text style={styles.title}>Choose a sticker</Text>

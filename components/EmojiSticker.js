@@ -4,16 +4,16 @@ import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-na
 
 export default function EmojiSticker({ imageSize, stickerSource }) {
 
-    const translateX = useSharedValue(0); // задает начальное положение наклейки при запуске жеста. 
+    const translateX = useSharedValue(0);
     const translateY = useSharedValue(0);
 
-    const drag = Gesture.Pan()            // drag объект для обработки жеста панорамирования. 
+    const drag = Gesture.Pan()
         .onChange((event) => {
             translateX.value += event.changeX;
             translateY.value += event.changeY;
         });
 
-    const containerStyle = useAnimatedStyle(() => {  // хук для возврата массива преобразований
+    const containerStyle = useAnimatedStyle(() => {
         return {
             transform: [
                 {
@@ -57,10 +57,3 @@ export default function EmojiSticker({ imageSize, stickerSource }) {
     );
 }
 
-/*
-imageSize: значение, определенное внутри <App>компонент.
-
-stickerSource: источник выбранного изображения эмодзи. 
-
- Animatedкомпонент смотрит на styleопора компонента. Он также определяет, какие значения нужно анимировать, и применяет обновления для создания анимации. 
-*/
